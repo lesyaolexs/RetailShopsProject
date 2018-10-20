@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 from Retail.shops import views
-from Retail.shops import serializers
+
 
 router = routers.DefaultRouter()
 router.register(r'shops', views.ShopViewSet)
@@ -26,7 +26,8 @@ router.register(r'salesmans', views.SalesmanViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'items', views.ItemViewSet)
 router.register(r'orderitems', views.OrderItemViewSet)
-router.register(r'shopsandsellers', views.ShopAndSellersViewSet)
+router.register(r'shopsreport', views.ShopsReportViewSet)
+router.register(r'ordersshops', views.InfoForSimpleUserViewSet)
 
 
 
