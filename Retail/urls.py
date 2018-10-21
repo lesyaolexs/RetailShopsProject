@@ -22,12 +22,12 @@ from Retail.shops import views
 
 router = routers.DefaultRouter()
 router.register(r'shops', views.ShopViewSet)
-router.register(r'salesmans', views.SalesmanViewSet)
+router.register(r'salesmen', views.SalesmanViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'items', views.ItemViewSet)
 router.register(r'orderitems', views.OrderItemViewSet)
-router.register(r'shopsreport', views.ShopsReportViewSet)
-router.register(r'ordersshops', views.InfoForSimpleUserViewSet)
+router.register(r'shops_report', views.ShopsReportViewSet, base_name='shops_report')
+router.register(r'salesmen_report', views.InfoForSimpleUserViewSet, base_name='salesmen_report')
 
 
 

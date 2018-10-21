@@ -1,7 +1,14 @@
-dump.sql creates the database, tables and data, credentials lesya / 1
+# Install
+* python3+
+* requirements.txt
+* PostgreSQL database version 9.5.14 but can be use earlier version(not testing)
 
-
-Superuser (owner): credentials lesya / zaqwedcxsd321
-
+dump.sql creates the database, tables and data, credentials lesya / 1  
+Superuser (owner): credentials lesya / zaqwedcxsd321  
 Simple user: credentials Olya / 123456789
 
+
+# API
+##Shops
+## Salesmen
+## Orders
