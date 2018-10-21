@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from Retail.shops.models import Salesman, Order, OrderItem, Shop
+from retail.shops.models import Salesman, Order, OrderItem, Shop
+
 
 class SalesmenReportSerializer(serializers.ModelSerializer):
 
@@ -17,8 +18,8 @@ class SalesmenReportSerializer(serializers.ModelSerializer):
         return sum / len(list(sellers))
 
     class Meta:
-       model = Shop
-       fields = ('name',
-                 'average_number_of_item',)
+        model = Shop
+        fields = ('name',
+                  'average_number_of_item',)
 
 
