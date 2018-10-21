@@ -1,5 +1,7 @@
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
 
 from Retail.shops.serializers import *
 
@@ -9,6 +11,18 @@ permissions_classes = [IsAuthenticatedOrReadOnly]
 class ShopViewSet(viewsets.ModelViewSet):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
+
+    @action(detail=False, permission_classes=[IsAdminUser])
+    def shops_report(self, request):
+        serializer = ShopsReportSerializer(data=Shop.objects.all(), many=True)
+        serializer.is_valid()
+        return Response(serializer.data)
+
+    @action(detail=False, permission_classes =[IsAuthenticatedOrReadOnly])
+    def salesmen_report(self, request):
+        serializer = SalesmenReportSerializer(data=Shop.objects.all(), many=True)
+        serializer.is_valid()
+        return Response(serializer.data)
 
 
 class SalesmanViewSet(viewsets.ModelViewSet):
@@ -30,16 +44,6 @@ class OrderItemViewSet(viewsets.ModelViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
 
-
-class ShopsReportViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAdminUser]
-    queryset = Shop.objects.all()
-    serializer_class = ShopsReportSerializer
-
-
-class InfoForSimpleUserViewSet(viewsets.ModelViewSet):
-    queryset = Shop.objects.all()
-    serializer_class = InfoForSimpleUserSerializer
 
 
 

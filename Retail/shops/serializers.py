@@ -66,7 +66,7 @@ class ShopsReportSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class InfoForSimpleUserSerializer(serializers.ModelSerializer):
+class SalesmenReportSerializer(serializers.ModelSerializer):
 
     average_number_of_item = serializers.SerializerMethodField()
 
@@ -80,7 +80,6 @@ class InfoForSimpleUserSerializer(serializers.ModelSerializer):
             for item in OrderItem.objects.filter(order=order):
                 sum = sum + item.quantity
         return sum / len(list(sellers))
-
 
     class Meta:
        model = Shop

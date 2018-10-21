@@ -26,9 +26,6 @@ router.register(r'salesmen', views.SalesmanViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'items', views.ItemViewSet)
 router.register(r'orderitems', views.OrderItemViewSet)
-router.register(r'shops_report', views.ShopsReportViewSet, base_name='shops_report')
-router.register(r'salesmen_report', views.InfoForSimpleUserViewSet, base_name='salesmen_report')
-
 
 
 urlpatterns = [
