@@ -7,63 +7,60 @@ class ShopSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shop
-        fields = ('name',)
+        fields = '__all__'
 
 
 class SalesmanSerializer(serializers.ModelSerializer):
 
-    number_of_items = serializers.SerializerMethodField()
-
-    def get_number_of_items(self, obj):
-
-        sum = 0
-
-        for order in Order.objects.filter(salesman=obj):
-            for item in OrderItem.objects.filter(order=order):
-                sum = sum + item.quantity
-
-        return sum
-
     class Meta:
         model = Salesman
-        fields = ('first_name',
-                  'last_name',
-                  'email',
-                  'number_of_items',)
+        fields = '__all__'
 
 
 class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('date',)
+        fields = '__all__'
 
 
 class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('name',)
+        fields = '__all__'
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderItem
-        fields = ('order',
-                  'item',
-                  'item',
-                  'price',
-                  'quantity',)
+        fields = '__all__'
 
+
+class CustomSelesmanSerializer(serializers.ModelSerializer):
+    number_of_items = serializers.SerializerMethodField()
+
+    def get_number_of_items(self, obj):
+        sum = 0
+        for order in Order.objects.filter(salesman=obj):
+            for item in OrderItem.objects.filter(order=order):
+                sum = sum + item.quantity
+        return sum
+
+    class Meta:
+        model = Salesman
+        fields = ('first_name',
+                  'last_name',
+                  'number_of_items',)
 
 class ShopsReportSerializer(serializers.ModelSerializer):
-
-    sellers = SalesmanSerializer(many=True)
+    sellers = CustomSelesmanSerializer(many=True)
 
     class Meta:
         model = Shop
-        fields = '__all__'
+        fields = ('name',
+                  'sellers', )
 
 
 class SalesmenReportSerializer(serializers.ModelSerializer):
