@@ -2,9 +2,9 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
-from retail.shops.serializers.basic import *
-from retail.shops.serializers.salesmen_report import SalesmenReportSerializer
-from retail.shops.serializers.shops_report import CustomSelesmanSerializer, ShopsReportSerializer
+from Retail.shops.serializers.basic import *
+from Retail.shops.serializers.salesmen_report import SalesmenReportSerializer
+from Retail.shops.serializers.shops_report import CustomSelesmanSerializer, ShopsReportSerializer
 
 permissions_classes = [IsAuthenticatedOrReadOnly]
 

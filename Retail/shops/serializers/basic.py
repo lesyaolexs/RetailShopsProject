@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from retail.shops.models import *
+
+from Retail.shops.models import *
 
 
 class ShopSerializer(serializers.ModelSerializer):
