@@ -10,4 +10,4 @@ Simple user: credentials Olya / 123456789
 
 ###Docs
 
-[Docs](RetailShopsProjectAPI.html)
+[Docs](Docs/RetailShopsProjectAPI.html)
