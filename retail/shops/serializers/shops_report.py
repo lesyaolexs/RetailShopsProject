@@ -1,6 +1,6 @@
 from rest_framework import serializers
+from retail.shops.models import Order, OrderItem, Salesman, Shop
 
-from Retail.shops.models import Order, OrderItem, Salesman, Shop
 
 class CustomSelesmanSerializer(serializers.ModelSerializer):
     number_of_items = serializers.SerializerMethodField()
